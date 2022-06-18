@@ -21,17 +21,27 @@ body{
 .title{
    background: #cd4242;
    border-radius: 10px;
-   width: 500px;
+   width: 600px;
    text-align: center;
    margin-bottom: 10 px;
 }
 
+#item{
+   width: 450px;
+
+}
 .list{
    margin: 10px 0 10px 0;
    padding: 0%;
 }
-
-table{
+.tabla{
+   width: 590px;
+   overflow-y: auto;
    margin: 10px 0 10px 0;
    border: 2px solid #cd4242;
+   table-layout: fixed;
+}
+
+#item_x{
+   color: blue;
 }

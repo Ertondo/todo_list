@@ -19,18 +19,24 @@
       </div>
       <div class="list">
          <form action="" name="add_item" class="form-control" id="add_item">
-            <input type="text" id="item">
-            <button>Agregar item</button>
+            <input type="text" id="item" placeholder="Nueva tarea...">
+            <button>Agregar tarea</button>
          </form>
+      </div>
+      <div class="tabla"> 
+
          <table class="table table-striped" id="table">
             <!-- Header -->
             <tr>
-               <th>Num </th>
-               <th>Detail</th>
-               <th>Time</th>
+               <th>Detalle</th>
+               <th>Hora</th>
+               <th></th>
             </tr>
-            <!-- List Items -->
+            <!-- List item by script-->
          </table>
+      </div>
+      <div>
+         <p class="tareas_pendientes">No tiene tareas pendientes</p>
       </div>
    </div>
    <script src="./src/script.js"></script>
