@@ -10,7 +10,6 @@ form_element.addEventListener("submit", (event) => {
 
   if (now_item) {
     form_element.reset();
-
     num++;
     let detail = now_item;
     let time = new Date();
@@ -21,6 +20,34 @@ form_element.addEventListener("submit", (event) => {
     suma_tarea();
   }
 });
+
+//Funcion que inserta los datos ingresados en la tabla
+function insert_rows(num, detail, time) {
+  let data_storage_table = document.getElementById("table").insertRow(1);
+  let row_cell1 = data_storage_table.insertCell(0);
+  let row_cell2 = data_storage_table.insertCell(1);
+  let row_cell3 = data_storage_table.insertCell(2);
+
+  const btn_borrar = document.createElement("button");
+  btn_borrar.textContent = "X";
+  btn_borrar.className = "btn_borrar btn btn-secondary";
+
+  //Agrego el boton de tarea pendiente
+  row_cell3.appendChild(btn_borrar);
+  row_cell1.innerHTML = detail;
+  row_cell2.innerHTML = time;
+
+  //Dos Funciones que escuchan el boton de tarea pendiente
+  btn_borrar.addEventListener("click", () => {
+    // Cambia el boton a ok y lo inhabilita
+    // btn_borrar.textContent = "Ok";
+    // btn_borrar.disabled = true;
+
+    //otra forma...borra la tarea
+    data_storage_table.remove();
+    resta_tarea();
+  });
+}
 
 function suma_tarea() {
   num_tareas.textContent = "Tiene " + num + " tareas pendientes";
@@ -33,32 +60,4 @@ function resta_tarea() {
   } else {
     num_tareas.textContent = "No tiene tareas pendientes";
   }
-}
-
-//Funcion que inserta los datos ingresados en la tabla
-function insert_rows(num, detail, time) {
-  let data_storage_table = document.getElementById("table").insertRow(1);
-  let row_cell1 = data_storage_table.insertCell(0);
-  let row_cell2 = data_storage_table.insertCell(1);
-  let row_cell3 = data_storage_table.insertCell(2);
-
-  const btn_borrar = document.createElement("button");
-  btn_borrar.textContent = "X";
-  btn_borrar.className = "btn_borrar";
-
-  //Agrego el boton de tarea pendiente
-  row_cell3.appendChild(btn_borrar);
-  row_cell1.innerHTML = detail;
-  row_cell2.innerHTML = time;
-
-  //Dos Funciones que escuchan el boton de tarea pendiente
-  btn_borrar.addEventListener("click", (e) => {
-    // Cambia el boton a ok y lo inhabilita
-    // btn_borrar.textContent = "Ok";
-    // btn_borrar.disabled = true;
-
-    //otra forma...borra la tarea
-    data_storage_table.remove();
-    resta_tarea();
-  });
 }
